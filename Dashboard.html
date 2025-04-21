@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetJoy | Dashboard</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <!-- Navbar será inserida via JavaScript -->
+    <div id="navbar-container"></div>
+
+    <main class="dashboard-content">
+        <header class="dashboard-header">
+            <button type="button" class="menu-toggle">☰ Menu</button>
+            <h2>Bem-vindo ao Painel</h2>
+            <div class="user-info">
+                <span>Administrador</span>
+            </div>
+        </header>
+
+        <section class="dashboard-section">
+            <h2>Resumo</h2>
+            <div class="resumo-cards">
+                <article class="resumo-card">
+                    <h3>Agendamentos Hoje</h3>
+                    <p>12</p>
+                </article>
+                <article class="resumo-card">
+                    <h3>Vendas do Dia</h3>
+                    <p>R$ 1.250,00</p>
+                </article>
+                <article class="resumo-card">
+                    <h3>Pets Atendidos</h3>
+                    <p>45</p>
+                </article>
+                <article class="resumo-card">
+                    <h3>Produtos em Baixa</h3>
+                    <p>8</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="dashboard-section">
+            <h2>Próximos Agendamentos</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pet</th>
+                            <th>Serviço</th>
+                            <th>Horário</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Max</td>
+                            <td>Banho e Tosa</td>
+                            <td>14:00</td>
+                            <td><span class="status confirmado">Confirmado</span></td>
+                        </tr>
+                        <tr>
+                            <td>Luna</td>
+                            <td>Banho</td>
+                            <td>15:30</td>
+                            <td><span class="status confirmado">Confirmado</span></td>
+                        </tr>
+                        <tr>
+                            <td>Thor</td>
+                            <td>Tosa</td>
+                            <td>16:45</td>
+                            <td><span class="status pendente">Pendente</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="dashboard-section">
+            <h2>Produtos em Baixa no Estoque</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Estoque Mínimo</th>
+                            <th>Quantidade Atual</th>
+                            <th>Prioridade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ração Premium Cães</td>
+                            <td>10</td>
+                            <td>5</td>
+                            <td><span class="prioridade alta">Alta</span></td>
+                        </tr>
+                        <tr>
+                            <td>Shampoo Neutro</td>
+                            <td>8</td>
+                            <td>3</td>
+                            <td><span class="prioridade alta">Alta</span></td>
+                        </tr>
+                        <tr>
+                            <td>Antipulgas</td>
+                            <td>12</td>
+                            <td>4</td>
+                            <td><span class="prioridade media">Média</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="dashboard-section">
+            <h2>Formulário de Agendamento</h2>
+            <form class="dashboard-form">
+                <fieldset>
+                    <legend>Dados do Pet</legend>
+                    <div class="form-group">
+                        <label for="pet-name">Nome do Pet:</label>
+                        <input type="text" id="pet-name" name="pet-name" required placeholder="Digite o nome do pet">
+                    </div>
+                    <div class="form-group">
+                        <label for="pet-type">Tipo:</label>
+                        <select id="pet-type" name="pet-type" required>
+                            <option value="">Selecione</option>
+                            <option value="cachorro">Cachorro</option>
+                            <option value="gato">Gato</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Serviço</legend>
+                    <div class="form-group">
+                        <label for="service">Serviço:</label>
+                        <select id="service" name="service" required>
+                            <option value="">Selecione</option>
+                            <option value="banho">Banho</option>
+                            <option value="tosa">Tosa</option>
+                            <option value="banho-tosa">Banho e Tosa</option>
+                            <option value="veterinario">Consulta Veterinária</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Data:</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Horário:</label>
+                        <input type="time" id="time" name="time" required>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Observações</legend>
+                    <div class="form-group">
+                        <label for="notes">Observações Adicionais:</label>
+                        <textarea id="notes" name="notes" rows="4" placeholder="Informações importantes sobre o pet"></textarea>
+                    </div>
+                </fieldset>
+
+                <div class="form-actions">
+                    <button type="submit" class="form-button submit">Agendar</button>
+                    <button type="reset" class="form-button reset">Limpar</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="js/navbar.js"></script>
+    <script>
+        // Carrega a navbar
+        fetch('partials/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+                
+                // Atualiza a navbar para o dashboard
+                const navLinks = document.querySelectorAll('.sidebar-nav a');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if(link.textContent === 'Dashboard') {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // Ativa o menu toggle
+                const menuToggle = document.querySelector('.menu-toggle');
+                const sidebar = document.querySelector('.sidebar');
+                
+                if(menuToggle && sidebar) {
+                    menuToggle.addEventListener('click', function() {
+                        sidebar.classList.toggle('active');
+                    });
+                }
+            });
+    </script>
+</body>
+</html>

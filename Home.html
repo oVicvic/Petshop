@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetJoy | Home - Seu Petshop Completo</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <!-- Navbar será inserida via JavaScript -->
+    <div id="navbar-container"></div>
+
+    <main class="main-content">
+        <header class="main-header">
+            <button type="button" class="menu-toggle">☰ Menu</button>
+            <h2 class="page-title">Bem-vindo ao PetJoy</h2>
+            <div class="user-actions">
+                <a href="Login.html" class="login-btn">Login</a>
+            </div>
+        </header>
+
+        <section class="hero-banner">
+            <div class="hero-content">
+                <h2>Seu pet merece o melhor cuidado</h2>
+                <p>Na PetJoy, oferecemos serviços premium com amor e dedicação</p>
+                <div class="cta-buttons">
+                    <a href="Agendamentos.html" class="cta-button primary">Agende Agora</a>
+                    <a href="Servicos.html" class="cta-button secondary">Conheça Serviços</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Restante do conteúdo da home permanece igual -->
+        <!-- ... -->
+
+    </main>
+
+    <script src="js/navbar.js"></script>
+    <script>
+        // Carrega a navbar
+        fetch('partials/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+                
+                // Ativa o menu toggle
+                const menuToggle = document.querySelector('.menu-toggle');
+                const sidebar = document.querySelector('.sidebar');
+                
+                if(menuToggle && sidebar) {
+                    menuToggle.addEventListener('click', function() {
+                        sidebar.classList.toggle('active');
+                    });
+                }
+            });
+        
+        // Efeitos hover nos cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.querySelector('img').style.transform = 'translateY(-5px) scale(1.05)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.querySelector('img').style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

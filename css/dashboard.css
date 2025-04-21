@@ -1,0 +1,383 @@
+/* ===== DASHBOARD LAYOUT ===== */
+.dashboard-content {
+    margin-left: 280px;
+    padding: 30px;
+    min-height: 100vh;
+    background-color: #F5F5F5;
+}
+
+/* ===== HEADER ===== */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.dashboard-header::after {
+    content: "Dashboard";
+    position: absolute;
+    left: 30px;
+    bottom: -12px;
+    background-color: #FF6B6B;
+    color: white;
+    padding: 4px 18px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.dashboard-header h2 {
+    color: #2c3e50;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.user-info span {
+    background-color: #4DB5FF;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== SEÇÕES ===== */
+.dashboard-section {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.dashboard-section h2 {
+    color: #333;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #F5F5F5;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+}
+
+.dashboard-section h2::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 24px;
+    background-color: #FF6B6B;
+    border-radius: 3px;
+}
+
+/* ===== CARDS DE RESUMO ===== */
+.resumo-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.resumo-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s;
+    border: 1px solid #F5F5F5;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.resumo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    animation: pulse 0.5s ease;
+}
+
+.resumo-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #4DB5FF;
+}
+
+.resumo-card:nth-child(2)::after {
+    background-color: #FF6B6B;
+}
+
+.resumo-card:nth-child(3)::after {
+    background-color: #7CF4B9;
+}
+
+.resumo-card:nth-child(4)::after {
+    background-color: #FFD93D;
+}
+
+.resumo-card:hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        rgba(255, 255, 255, 0.2) 50%, 
+        rgba(255, 255, 255, 0.1) 100%);
+    background-size: 200% 200%;
+    animation: brilho 2s infinite;
+    z-index: 0;
+}
+
+.resumo-card h3 {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+}
+
+.resumo-card p {
+    color: #333;
+    font-size: 2rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== TABELAS ===== */
+.table-container {
+    overflow-x: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+th, td {
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid #F5F5F5;
+}
+
+th {
+    background-color: #4DB5FF;
+    color: white;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+tr:nth-child(even) {
+    background-color: #F9F9F9;
+}
+
+tr:hover {
+    background-color: #f0f8ff;
+}
+
+/* ===== TAGS DE STATUS ===== */
+.status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.status.confirmado {
+    background-color: #7CF4B9;
+    color: #0a5c36;
+}
+
+.status.pendente {
+    background-color: #FFD93D;
+    color: #8a6d00;
+}
+
+.prioridade {
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.prioridade.alta {
+    background-color: #FF6B6B20;
+    color: #FF6B6B;
+}
+
+.prioridade.media {
+    background-color: #FFD93D20;
+    color: #8a6d00;
+}
+
+/* ===== FORMULÁRIO ===== */
+.dashboard-form {
+    margin-top: 25px;
+}
+
+fieldset {
+    border: 1px solid #F5F5F5;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 25px;
+    background-color: #F9F9F9;
+}
+
+legend {
+    padding: 0 12px;
+    color: #4DB5FF;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #555;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+select,
+textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s;
+    background-color: white;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #4DB5FF;
+    box-shadow: 0 0 0 3px rgba(77, 181, 255, 0.2);
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.form-button {
+    padding: 14px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.form-button.submit {
+    background-color: #FFD93D;
+    color: #333;
+}
+
+.form-button.reset {
+    background-color: #F5F5F5;
+    color: #666;
+}
+
+.form-button.submit:hover {
+    background-color: #ffd11a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.form-button.submit:hover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        rgba(255, 255, 255, 0.3) 50%, 
+        rgba(255, 255, 255, 0.1) 100%);
+    background-size: 200% 200%;
+    animation: brilho 2s infinite;
+}
+
+.form-button.reset:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+/* ===== RESPONSIVIDADE DASHBOARD ===== */
+@media (max-width: 1200px) {
+    .dashboard-content {
+        margin-left: 240px;
+    }
+}
+
+@media (max-width: 992px) {
+    .resumo-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .resumo-cards {
+        grid-template-columns: 1fr;
+    }
+    .form-actions {
+        flex-direction: column;
+    }
+    .form-button {
+        width: 100%;
+    }
+}

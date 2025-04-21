@@ -1,0 +1,121 @@
+/* ===== RESET & BASE STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #F5F5F5;
+  color: #333;
+  line-height: 1.6;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ===== ANIMAÇÕES GLOBAIS ===== */
+@keyframes mexidinha {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  50% { transform: translateX(2px); }
+  75% { transform: translateX(-1px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* ===== ESTRUTURA LAYOUT ===== */
+.main-content {
+  margin-left: 280px;
+  flex: 1;
+  padding: 30px;
+  min-height: 100vh;
+}
+
+/* ===== COMPONENTES COMPARTILHADOS ===== */
+.cta-button {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.cta-button.primary {
+  background-color: #FFD93D;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button.primary:hover {
+  background-color: #ffd11a;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cta-button.secondary {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.cta-button.secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+.section-title {
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background-color: #FF6B6B;
+  border-radius: 2px;
+}
+
+/* ===== RESPONSIVIDADE GLOBAL ===== */
+@media (max-width: 1200px) {
+  .main-content {
+      margin-left: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+      margin-left: 0;
+      padding: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .cta-buttons {
+      flex-direction: column;
+      gap: 10px;
+  }
+  
+  .cta-button {
+      width: 100%;
+  }
+}
