@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetJoy | Agendamentos</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/agendamentos.css">
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <main class="agendamentos-content">
+        <div class="agendamentos-container">
+            <header class="agendamentos-header">
+                <button type="button" class="menu-toggle">☰ Menu</button>
+                <h2>Gerenciar Agendamentos</h2>
+                <button class="new-agendamento">
+                    <i class="fas fa-plus"></i> Novo Agendamento
+                </button>
+            </header>
+
+            <div class="agendamentos-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar agendamento...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="date-filter">
+                    <label for="filter-date">Filtrar por data:</label>
+                    <input type="date" id="filter-date">
+                </div>
+            </div>
+
+            <section class="agendamentos-section">
+                <div class="section-header">
+                    <h3>Agendamentos do Dia</h3>
+                    <span class="badge">12</span>
+                </div>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Pet</th>
+                                <th>Dono</th>
+                                <th>Serviço</th>
+                                <th>Horário</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="pet-cell">
+                                        <img src="https://via.placeholder.com/40" alt="Max">
+                                        <span>Max</span>
+                                    </div>
+                                </td>
+                                <td>Ana Silva</td>
+                                <td>Banho e Tosa</td>
+                                <td>14:00</td>
+                                <td><span class="status confirmado">Confirmado</span></td>
+                                <td>
+                                    <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn cancel"><i class="fas fa-times"></i></button>
+                                </td>
+                            </tr>
+                            <!-- Mais linhas de agendamentos... -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="agendamentos-form-section">
+                <h3><i class="fas fa-calendar-plus"></i> Novo Agendamento</h3>
+                <form class="agendamento-form">
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="pet-name">Nome do Pet:</label>
+                            <input type="text" id="pet-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pet-type">Tipo:</label>
+                            <select id="pet-type" required>
+                                <option value="">Selecione</option>
+                                <option value="cachorro">Cachorro</option>
+                                <option value="gato">Gato</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="owner-name">Dono:</label>
+                            <input type="text" id="owner-name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="service">Serviço:</label>
+                            <select id="service" required>
+                                <option value="">Selecione</option>
+                                <option value="banho">Banho</option>
+                                <option value="tosa">Tosa</option>
+                                <option value="banho-tosa">Banho e Tosa</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="agendamento-date">Data:</label>
+                            <input type="date" id="agendamento-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="agendamento-time">Horário:</label>
+                            <input type="time" id="agendamento-time" required>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Agendar</button>
+                        <button type="reset" class="btn-secondary">Limpar</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/navbar.js"></script>
+    <script>
+        fetch('partials/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+                const menuToggle = document.querySelector('.menu-toggle');
+                const sidebar = document.querySelector('.sidebar');
+                if(menuToggle && sidebar) {
+                    menuToggle.addEventListener('click', () => sidebar.classList.toggle('active'));
+                }
+            });
+    </script>
+</body>
+</html>
