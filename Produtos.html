@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PetJoy | Produtos</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/produtos.css">
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <main class="produtos-content">
+    <header class="produtos-header">
+      <h2>Produtos</h2>
+      <a href="checkout.html" class="carrinho-link">
+        <i class="fas fa-shopping-cart"></i> Carrinho (<span id="cart-count">0</span>)
+      </a>
+    </header>
+
+    <section class="produtos-grid" id="produtos-lista">
+      <!-- Produtos adicionados via JavaScript -->
+    </section>
+  </main>
+
+  <script src="js/navbar.js"></script>
+  <script src="js/produtos.js"></script>
+  <div id="navbar-container"></div>
+
+<!-- Inclua isso antes do fechamento do </body> -->
+<script>
+  fetch('partials/navbar.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('navbar-container').innerHTML = html;
+    });
+</script>
+
+</body>
+</html>
